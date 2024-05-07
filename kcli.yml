@@ -1,0 +1,18 @@
+---
+- name: kcli crea una maquina
+  hosts: localhost
+  vars_prompt:
+    - name: nombre
+      prompt: Elige el nombre de la maquina
+      private: false
+    - name: profile
+      prompt: Elige el nombre del profile
+      private: false 
+  tasks:
+    
+    - name: Comando
+      debug:
+        msg: " kcli create vm {{ nombre  }} ̣-p {{ profile  }}"
+    - name: ejecutando
+      ansible.builtin.command: "kcli create vm {{ nombre  }} -p {{ profile  }}"
+      
