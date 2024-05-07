@@ -3,14 +3,14 @@
   hosts: localhost
   vars_prompt:
     - name: nombre
-      prompt: Elige el nombre de la maquina
+      prompt: Elige el nombre de la maquina o maquinas
       private: false
   tasks:
     
     - name: Comando
       debug:
-        msg: " echo 'yes' | kcli delete vm {{ nombre  }}"
+        msg: " kcli delete vm {{ nombre  }}"
     - name: ejecutando
-      ansible.builtin.command: "echo 'yes' |kcli delete vm {{ nombre  }}"
+      ansible.builtin.command: "kcli stop vm {{ nombre  }}"
       
       
